@@ -1,11 +1,6 @@
-# Dependências do app Streamlit (app_streamlit.py).
-# Este é o arquivo lido pelo Streamlit Community Cloud, que roda só em CPU:
-# a linha abaixo faz o pip baixar o PyTorch para CPU (bem menor que a versão com CUDA).
---extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.14.1
+streamlit
+torch
 transformers==4.46.3
 peft==0.13.2
 accelerate==1.1.1
 sentence-transformers==3.3.1
-streamlit
-numpy

@@ -25,14 +25,11 @@ Uma LLM pequena (**SmolLM2-360M-Instruct**), ajustada com **LoRA** em uma GPU lo
 1. [Problema](#-problema)
 2. [Solução](#-solução)
 3. [Estrutura do repositório](#-estrutura-do-repositório)
-4. [Como rodar](#-como-rodar)
-5. [Deploy no Streamlit Community Cloud](#-deploy-no-streamlit-community-cloud)
-6. [Base de conhecimento](#-base-de-conhecimento)
-7. [Experimentos e resultados](#-experimentos-e-resultados)
-8. [Análise dos erros](#-análise-dos-erros)
-9. [Evolução: versão 1 → versão 2](#-evolução-versão-1--versão-2)
-10. [GPU e prints](#-gpu-e-prints)
-11. [Limitações e próximos passos](#-limitações-e-próximos-passos)
+4. [Base de conhecimento](#-base-de-conhecimento)
+5. [Experimentos e resultados](#-experimentos-e-resultados)
+6. [Análise dos erros](#-análise-dos-erros)
+7. [Evolução: versão 1 → versão 2](#-evolução-versão-1--versão-2)
+8. [GPU e prints](#-gpu-e-prints)
 
 ---
 
@@ -104,8 +101,7 @@ O modelo **não escreve** a mensagem ao cliente: ele classifica o chamado e apon
 ├── app_streamlit.py                         # frontend (chat de atendimento)
 ├── base_conhecimento.py                     # 20 políticas da loja + respostas automáticas
 ├── chamados_exemplo.py                      # frases de treino, perguntas fora da base e casos de teste
-├── requirements.txt                         # dependências do app (CPU, usado pelo Streamlit Cloud)
-├── requirements-treino.txt                  # dependências do notebook (GPU)
+├── requirements.txt                         # dependências do app Streamlit
 ├── .streamlit/config.toml                   # configuração do Streamlit
 ├── saidas_v2/                               # resultados da versão 2
 │   ├── adaptadores/C_r16_ep5_lr2e-4/        # adaptador LoRA do melhor experimento (usado pelo app)
@@ -116,64 +112,6 @@ O modelo **não escreve** a mensagem ao cliente: ele classifica o chamado e apon
 ├── saidas/                                  # resultados da versão 1
 └── prints/                                  # prints da GPU e do app
 ```
-
----
-
-## 🚀 Como rodar
-
-### 1. Treino (notebook, com GPU NVIDIA)
-
-```powershell
-py -3.12 -m venv .venv
-.venv\Scripts\Activate.ps1
-
-# PyTorch com CUDA (escolha a versão do seu driver em https://pytorch.org/get-started/locally/)
-python -m pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cu126
-
-# Demais bibliotecas
-python -m pip install -r requirements-treino.txt
-
-# Conferência: deve mostrar "+cu126 True"
-python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
-```
-
-No VSCode, abra `CP_Ecommerce_SmolLM2_RAG_LoRA_v2.ipynb`, selecione o kernel **.venv** e rode todas as células. Os resultados vão para `saidas_v2/`. Na RTX 3050 6 GB, os 5 experimentos levaram cerca de 1 hora.
-
-> Se o disco C: estiver cheio, mande a pasta temporária e o cache do pip para outro disco antes de instalar:
-> `$env:TMP="D:\pip-temp"; $env:TEMP="D:\pip-temp"; $env:PIP_CACHE_DIR="D:\pip-cache"`
-
-### 2. App local
-
-Com o ambiente acima ativado (o adaptador treinado já está em `saidas_v2/`):
-
-```powershell
-streamlit run app_streamlit.py
-```
-
-Depois abra <http://localhost:8501>.
-
----
-
-## ☁️ Deploy no Streamlit Community Cloud
-
-O app também roda no [Streamlit Community Cloud](https://share.streamlit.io), que oferece **só CPU** e até **~2,7 GB de RAM**. Por isso:
-
-- o `requirements.txt` instala o **PyTorch para CPU**;
-- o app carrega o modelo em **bfloat16** (≈ 0,7 GB, o mesmo formato do treino);
-- o adaptador LoRA do melhor experimento (≈ 35 MB) fica no repositório. O modelo base e o de embeddings são baixados do Hugging Face na primeira execução.
-
-**Passos:**
-
-1. Suba este repositório para o GitHub (público).
-2. Entre em <https://share.streamlit.io> com a conta do GitHub e clique em **Create app → Deploy a public app from GitHub**.
-3. Preencha:
-   - **Repository:** este repositório;
-   - **Branch:** `main`;
-   - **Main file path:** `app_streamlit.py`.
-4. Em **Advanced settings**, escolha **Python 3.12**.
-5. Clique em **Deploy**.
-
-A primeira inicialização demora alguns minutos, por causa da instalação e do download de ~1 GB de modelos. Em CPU, cada resposta leva mais tempo que na GPU.
 
 ---
 
@@ -331,30 +269,3 @@ Treino feito localmente no VSCode:
 **App Streamlit:**
 
 ![App Streamlit](prints/app_streamlit.png)
-
----
-
-## ⚠️ Limitações e próximos passos
-
-**Limitações:**
-
-- base pequena (20 documentos) e dados de treino sintéticos;
-- avaliação com 25 casos: cada caso vale 4 pontos percentuais;
-- a busca semântica encontra o documento certo em apenas metade dos chamados de teste.
-
-**Próximos passos:**
-
-1. **Embeddings mais fortes** (ex.: `paraphrase-multilingual-mpnet-base-v2`, `multilingual-e5-base`) para melhorar a busca, sem treinar o SmolLM2 de novo.
-2. **Mais frases por documento** no índice do RAG, com sinônimos e linguagem informal.
-3. **Busca híbrida** (palavras-chave + semântica) e um *reranker*.
-4. Avaliar com chamados reais e um conjunto de teste maior.
-
----
-
-## 📖 Referências
-
-- Notebooks e slides das Aulas 8 (SmolLM2-135M) e 9 (SmolLM2-360M + RAG), Prof. Francisco Elânio.
-- [SmolLM2 — Hugging Face](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct)
-- [PEFT / LoRA — Hugging Face](https://huggingface.co/docs/peft)
-- [Sentence Transformers](https://www.sbert.net/)
-- [Streamlit Community Cloud](https://docs.streamlit.io/deploy/streamlit-community-cloud)
