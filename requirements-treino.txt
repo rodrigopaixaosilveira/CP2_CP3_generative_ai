@@ -1,0 +1,19 @@
+# Dependências do notebook de treino (CP_Ecommerce_SmolLM2_RAG_LoRA_v2.ipynb), com GPU NVIDIA.
+#
+# 1º instale o PyTorch com CUDA, escolhendo a versão do seu driver em https://pytorch.org/get-started/locally/
+#    Exemplo usado no projeto (driver com CUDA 12.6+):
+#    pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cu126
+#
+# 2º instale o restante:
+#    pip install -r requirements-treino.txt
+transformers==4.46.3
+datasets==3.1.0
+peft==0.13.2
+accelerate==1.1.1
+sentence-transformers==3.3.1
+scikit-learn
+matplotlib
+pandas
+streamlit
+ipykernel
+ipywidgets

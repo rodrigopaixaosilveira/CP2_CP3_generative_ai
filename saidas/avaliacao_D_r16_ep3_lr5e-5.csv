@@ -1,0 +1,97 @@
+caso,chamado,docs_recuperados,json_valido,categoria_real,categoria_prevista,prioridade_real,prioridade_prevista,fonte_real,fonte_prevista,status_real,status_previsto,fonte_fundamentada,tempo_s,texto
+1,Já passaram dez dias e minha encomenda não apareceu.,"['DOC-003', 'DOC-001']",True,entrega,troca,media,baixa,DOC-001,Meus Pedidos,respondido,sem_informacao,False,5.14271829999052,"{
+  ""categoria"": ""troca"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""meus pedidos"",
+  ""procedimento"": ""atraso na entrega"",
+  ""fonte"": ""Meus Pedidos"",
+  ""status"": ""sem_informacao""
+}"
+2,A tela do notebook veio trincada.,[],True,defeito,baixa,alta,baixa,DOC-002,A,respondido,respondido,False,3.9572724000317976,"{
+  ""categoria"": ""baixa"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""A"",
+  ""procedimento"": ""A"",
+  ""fonte"": ""A"",
+  ""status"": ""respondido""
+}"
+3,"A calça não serviu, quero outra numeração.",[],True,troca,baixa,baixa,baixa,DOC-003,A,respondido,sem_informacao,False,3.8104203999973834,"{
+  ""categoria"": ""baixa"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""A"",
+  ""procedimento"": ""A"",
+  ""fonte"": ""A"",
+  ""status"": ""sem_informacao""
+}"
+4,"Mandei o produto de volta, quando recebo o valor que paguei?","['DOC-004', 'DOC-002']",True,reembolso,prazo_de_reembolso,media,baixa,DOC-004,Cartão de crédito,respondido,respondido,False,4.967339999973774,"{
+  ""categoria"": ""prazo_de_reembolso"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""produto_com_defeito"",
+  ""procedimento"": ""reembolso"",
+  ""fonte"": ""Cartão de crédito"",
+  ""status"": ""respondido""
+}"
+5,"Desisti da compra que fiz hoje cedo, dá para anular?","['DOC-005', 'DOC-003']",True,cancelamento,cancelamento,media,baixa,DOC-005,Meus Pedidos,respondido,respondido,False,4.206637600029353,"{
+  ""categoria"": ""cancelamento"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""meus pedidos"",
+  ""procedimento"": ""pedido"",
+  ""fonte"": ""Meus Pedidos"",
+  ""status"": ""respondido""
+}"
+6,A transação foi negada no checkout.,"['DOC-006', 'DOC-005']",True,pagamento,pagamento,alta,baixa,DOC-006,meus pedidos,respondido,respondido,False,4.350679399969522,"{
+  ""categoria"": ""pagamento"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""meus pedidos"",
+  ""procedimento"": ""cancelamento de pedido"",
+  ""fonte"": ""meus pedidos"",
+  ""status"": ""respondido""
+}"
+7,O código de desconto da newsletter não é aceito.,['DOC-007'],True,cupom,desconto,baixa,baixa,DOC-007,desenvolvimento,respondido,sem_informacao,False,4.437429400044493,"{
+  ""categoria"": ""desconto"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""desenvolvimento"",
+  ""procedimento"": ""desconto"",
+  ""fonte"": ""desenvolvimento"",
+  ""status"": ""sem_informacao""
+}"
+8,Tem um pedido no meu histórico que eu nunca fiz.,[],True,fraude,pedido,critica,baixa,DOC-008,tem,respondido,sem_informacao,False,3.9767621000064537,"{
+  ""categoria"": ""pedido"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""meu_histórico"",
+  ""procedimento"": ""tem"",
+  ""fonte"": ""tem"",
+  ""status"": ""sem_informacao""
+}"
+9,Qual é o salário inicial de um vendedor?,[],True,fora_da_base,entrega,baixa,baixa,,Santos,sem_informacao,sem_informacao,False,3.9695182999712415,"{
+  ""categoria"": ""entrega"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""Santos"",
+  ""procedimento"": ""despesas"",
+  ""fonte"": ""Santos"",
+  ""status"": ""sem_informacao""
+}"
+10,Vocês têm aplicativo para smart TV?,[],True,fora_da_base,baixa,baixa,baixa,,Premium,sem_informacao,respondido,False,3.810767200018745,"{
+  ""categoria"": ""baixa"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""Premium"",
+  ""procedimento"": ""Premium"",
+  ""fonte"": ""Premium"",
+  ""status"": ""respondido""
+}"
+11,Quem é o dono da empresa?,[],True,fora_da_base,quem_em_empresa,baixa,baixa,,dono,sem_informacao,respondido,False,4.263065100007225,"{
+  ""categoria"": ""quem_em_empresa"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""dono"",
+  ""procedimento"": ""quem_em_empresa"",
+  ""fonte"": ""dono"",
+  ""status"": ""respondido""
+}"
+12,Vocês fazem doações para ONGs?,[],True,fora_da_base,ongs,baixa,baixa,,1,sem_informacao,respondido,False,3.433543799968902,"{
+  ""categoria"": ""ongs"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""1"",
+  ""procedimento"": ""1"",
+  ""fonte"": ""1"",
+  ""status"": ""respondido""
+}"

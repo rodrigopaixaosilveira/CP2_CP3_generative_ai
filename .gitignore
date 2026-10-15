@@ -1,0 +1,19 @@
+# Ambiente virtual e caches
+.venv/
+hf-cache/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Checkpoints do treino (vários GB) — não são necessários para usar o modelo
+saidas*/checkpoints/
+
+# Adaptadores LoRA: só o do melhor experimento vai para o repositório (é o que o app usa).
+# Se o notebook escolher outro experimento, troque o nome na linha com "!".
+saidas/adaptadores/
+saidas_v2/adaptadores/*
+!saidas_v2/adaptadores/C_r16_ep5_lr2e-4/
+
+# Materiais das aulas e rascunhos
+1.py
+Aula*.ipynb

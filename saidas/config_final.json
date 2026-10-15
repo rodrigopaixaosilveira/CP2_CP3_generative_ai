@@ -1,0 +1,18 @@
+{
+  "modelo_base": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "modelo_embedding": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "adaptador": "saidas\\adaptadores\\C_r16_ep5_lr2e-4",
+  "melhor_experimento": "C_r16_ep5_lr2e-4",
+  "limiar_rag": 0.35,
+  "top_k": 2,
+  "metricas_teste": {
+    "json_valido": 1.0,
+    "categoria": 0.5,
+    "prioridade_f1": 0.1778846153846154,
+    "fonte": 0.4166666666666667,
+    "status": 0.8333333333333334,
+    "fonte_fundamentada": 0.4166666666666667,
+    "tempo_medio_s": 4.6199609583321335,
+    "pontuacao": 0.48197115384615385
+  }
+}

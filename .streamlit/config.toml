@@ -1,0 +1,11 @@
+[server]
+# Evita erros do "file watcher" do Streamlit com o PyTorch
+fileWatcherType = "none"
+# Não pergunta e-mail no terminal na primeira execução
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#E4572E"

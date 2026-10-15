@@ -1,0 +1,83 @@
+caso,chamado,docs_recuperados,json_valido,categoria_real,categoria_prevista,prioridade_real,prioridade_prevista,fonte_real,fonte_prevista,status_real,status_previsto,fonte_fundamentada,tempo_s,texto
+1,Já passaram dez dias e minha encomenda não apareceu.,"['DOC-003', 'DOC-001']",True,entrega,troca,media,alta,DOC-001,Meus Pedidos,respondido,respondido,False,4.16135149996262,"{
+  ""categoria"": ""troca"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""atraso"",
+  ""procedimento"": ""atraso"",
+  ""fonte"": ""Meus Pedidos"",
+  ""status"": ""respondido""
+}"
+2,A tela do notebook veio trincada.,[],True,defeito,defeito,alta,alta,DOC-002,A,respondido,respondido,False,3.358018900034949,"{
+  ""categoria"": ""defeito"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""A"",
+  ""procedimento"": ""A"",
+  ""fonte"": ""A"",
+  ""status"": ""respondido""
+}"
+3,"A calça não serviu, quero outra numeração.",[],True,troca,defeito,baixa,alta,DOC-003,https://www.example.com,respondido,respondido,False,4.698812699993141,"{
+  ""categoria"": ""defeito"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""Alejandro"",
+  ""procedimento"": ""Alejandro, 1234567890"",
+  ""fonte"": ""https://www.example.com"",
+  ""status"": ""respondido""
+}"
+4,"Mandei o produto de volta, quando recebo o valor que paguei?","['DOC-004', 'DOC-002']",True,reembolso,reembolso,media,alta,DOC-004,https://www.dados.com.br/dados/produtos/reembolso,respondido,respondido,False,6.8314868999877945,"{
+  ""categoria"": ""reembolso"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""Sistema de Serviços de Informação"",
+  ""procedimento"": ""Para que o produto seja devolvido em até 30 dias após receber o valor que paguei."",
+  ""fonte"": ""https://www.dados.com.br/dados/produtos/reembolso"",
+  ""status"": ""respondido""
+}"
+5,"Desisti da compra que fiz hoje cedo, dá para anular?","['DOC-005', 'DOC-003']",True,cancelamento,cancelamento,media,baixa,DOC-005,Meus Pedidos,respondido,respondido,False,4.756276800006162,"{
+  ""categoria"": ""cancelamento"",
+  ""prioridade"": ""baixa"",
+  ""equipe"": ""Meus Pedidos"",
+  ""procedimento"": ""Desisti da compra que fiz hoje cedo, dá para anular"",
+  ""fonte"": ""Meus Pedidos"",
+  ""status"": ""respondido""
+}"
+6,A transação foi negada no checkout.,"['DOC-006', 'DOC-005']",True,pagamento,pagamento,alta,alta,DOC-006,https://www.example.com,respondido,respondido,False,3.9145209999987856,"{
+  ""categoria"": ""pagamento"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""Pedido"",
+  ""procedimento"": ""cancelamento de pedido"",
+  ""fonte"": ""https://www.example.com"",
+  ""status"": ""respondido""
+}"
+7,O código de desconto da newsletter não é aceito.,['DOC-007'],True,cupom,cupom,baixa,alta,DOC-007,https://www.sistema.com.br/sistema-de-informações/cupom-de-desconto-inválido,respondido,respondido,False,5.849828400008846,"{
+  ""categoria"": ""cupom"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""Sistema de Informações"",
+  ""procedimento"": ""Cadastro de clientes"",
+  ""fonte"": ""https://www.sistema.com.br/sistema-de-informações/cupom-de-desconto-inválido"",
+  ""status"": ""respondido""
+}"
+8,Tem um pedido no meu histórico que eu nunca fiz.,[],True,fraude,fora_da_base,critica,critica,DOC-008,Nenhum documento relevante foi encontrado na base.,respondido,sem_informacao,False,4.426578500017058,"{
+  ""categoria"": ""fora_da_base"",
+  ""prioridade"": ""critica"",
+  ""equipe"": ""Santos"",
+  ""procedimento"": ""Pedido"",
+  ""fonte"": ""Nenhum documento relevante foi encontrado na base."",
+  ""status"": ""sem_informacao""
+}"
+9,Qual é o salário inicial de um vendedor?,[],True,fora_da_base,defeito,baixa,alta,,Sistema de Trabalho,sem_informacao,respondido,False,4.178835299971979,"{
+  ""categoria"": ""defeito"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""Sistema de Trabalho"",
+  ""procedimento"": ""Avalizar salários"",
+  ""fonte"": ""Sistema de Trabalho"",
+  ""status"": ""respondido""
+}"
+10,Vocês têm aplicativo para smart TV?,[],True,fora_da_base,defeito,baixa,alta,,https://www.santos.com/santos-smart-tv/,sem_informacao,,False,4.8456555000157095,"{""categoria"": ""defeito"", ""prioridade"": ""alta"", ""equipe"": ""Santos"", ""procedimento"": ""Ajuda ao cliente para a criar uma instância de Smart TV em sua casa."", ""fonte"": ""https://www.santos.com/santos-smart-tv/""}"
+11,Quem é o dono da empresa?,[],False,fora_da_base,__json_invalido__,baixa,__json_invalido__,,__json_invalido__,sem_informacao,__json_invalido__,False,8.625840299995616,"{""categoria"": ""defeito"", ""prioridade"": ""alta"", ""equipe"": ""Santos"", ""procedimento"": ""1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1."
+12,Vocês fazem doações para ONGs?,[],True,fora_da_base,defeito,baixa,alta,,https://www.santos.com/en/blog/2023/01/01/ongs-and-the-internet-of-things-in-2023/,sem_informacao,respondido,False,5.781998899998143,"{
+  ""categoria"": ""defeito"",
+  ""prioridade"": ""alta"",
+  ""equipe"": ""Santos"",
+  ""procedimento"": ""1.1.0"",
+  ""fonte"": ""https://www.santos.com/en/blog/2023/01/01/ongs-and-the-internet-of-things-in-2023/"",
+  ""status"": ""respondido""
+}"
