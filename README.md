@@ -4,17 +4,19 @@
 
 Uma LLM pequena (**SmolLM2-360M-Instruct**), ajustada com **LoRA** em uma GPU local e combinada com **RAG**, que lê o chamado de um cliente, consulta as políticas da loja, classifica o atendimento (categoria, prioridade e equipe) e devolve uma **resposta automática** ao cliente. Quando a base não cobre o assunto, o chamado é encaminhado a um atendente, sem inventar resposta.
 
+🔗 **App online:** <https://cp2cp3generativeai-5w6x6ex59eb6rihjhohpyg.streamlit.app/>
+
 ---
 
 ## 👥 Integrantes
 
 | Nome | RM |
 |---|---|
-| _(nome)_ | _(RM)_ |
-| _(nome)_ | _(RM)_ |
-| _(nome)_ | _(RM)_ |
-| _(nome)_ | _(RM)_ |
-| _(nome)_ | _(RM)_ |
+| Rodrigo Paixão Silveira | 96869 |
+| Victor Asfur | 551684 |
+| Victor Shimizu | 550390 |
+| Fabrizio Maia | 551869 |
+| João Pedro Marques | 98307 |
 
 ---
 
@@ -109,7 +111,7 @@ O modelo **não escreve** a mensagem ao cliente: ele classifica o chamado e apon
 │   ├── avaliacao_*.csv                      # respostas caso a caso de cada experimento
 │   └── *.png                                # gráficos
 ├── saidas/                                  # resultados da versão 1
-└── prints/                                  # prints da GPU e do app
+└── prints/                                  # print da GPU no VSCode
 ```
 
 ---
@@ -289,11 +291,3 @@ Treino feito localmente no VSCode:
 **GPU no VSCode (extensões GPU Environment / GPU Monitor):**
 
 ![GPU no VSCode](prints/gpu_vscode.png)
-
-**GPU em uso durante o treino:**
-
-![GPU durante o treino](prints/gpu_treino.png)
-
-**App Streamlit:**
-
-![App Streamlit](prints/app_streamlit.png)
