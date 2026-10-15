@@ -9,7 +9,6 @@ Usa o modelo treinado no notebook CP_Ecommerce_SmolLM2_RAG_LoRA_v2.ipynb:
 Como rodar localmente (na pasta do projeto, com o .venv ativado):
     streamlit run app_streamlit.py
 
-Também roda no Streamlit Community Cloud (CPU): veja a seção "Deploy" do README.
 """
 
 import json
@@ -47,7 +46,7 @@ LIMIAR_RAG = 0.55      # limiar de similaridade (escolhido no Experimento 1 do n
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 USAR_BF16 = DEVICE == "cuda" and torch.cuda.is_bf16_supported()
-# Na CPU (ex.: Streamlit Community Cloud, sem GPU e com até ~2,7 GB de RAM) o modelo é carregado em
+# Na CPU (computador sem GPU NVIDIA) o modelo é carregado em
 # bfloat16: ocupa metade da memória do float32 e é o mesmo formato usado no treino.
 DTYPE = torch.bfloat16 if (USAR_BF16 or DEVICE == "cpu") else torch.float16
 

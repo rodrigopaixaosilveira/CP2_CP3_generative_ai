@@ -4,8 +4,6 @@
 
 Uma LLM pequena (**SmolLM2-360M-Instruct**), ajustada com **LoRA** em uma GPU local e combinada com **RAG**, que lê o chamado de um cliente, consulta as políticas da loja, classifica o atendimento (categoria, prioridade e equipe) e devolve uma **resposta automática** ao cliente. Quando a base não cobre o assunto, o chamado é encaminhado a um atendente, sem inventar resposta.
 
-🔗 **App online (Streamlit Community Cloud):** _<cole aqui o link do app>_
-
 ---
 
 ## 👥 Integrantes
@@ -25,11 +23,12 @@ Uma LLM pequena (**SmolLM2-360M-Instruct**), ajustada com **LoRA** em uma GPU lo
 1. [Problema](#-problema)
 2. [Solução](#-solução)
 3. [Estrutura do repositório](#-estrutura-do-repositório)
-4. [Base de conhecimento](#-base-de-conhecimento)
-5. [Experimentos e resultados](#-experimentos-e-resultados)
-6. [Análise dos erros](#-análise-dos-erros)
-7. [Evolução: versão 1 → versão 2](#-evolução-versão-1--versão-2)
-8. [GPU e prints](#-gpu-e-prints)
+4. [Como abrir o app](#-como-abrir-o-app)
+5. [Base de conhecimento](#-base-de-conhecimento)
+6. [Experimentos e resultados](#-experimentos-e-resultados)
+7. [Análise dos erros](#-análise-dos-erros)
+8. [Evolução: versão 1 → versão 2](#-evolução-versão-1--versão-2)
+9. [GPU e prints](#-gpu-e-prints)
 
 ---
 
@@ -112,6 +111,35 @@ O modelo **não escreve** a mensagem ao cliente: ele classifica o chamado e apon
 ├── saidas/                                  # resultados da versão 1
 └── prints/                                  # prints da GPU e do app
 ```
+
+---
+
+## 🚀 Como abrir o app
+
+O app usa o modelo **já treinado**: o adaptador LoRA do melhor experimento está em `saidas_v2/adaptadores/C_r16_ep5_lr2e-4/`, e não é preciso rodar o notebook.
+
+**Pré-requisito:** Python 3.12.
+
+No terminal (PowerShell), na pasta do repositório:
+
+```powershell
+# 1. Criar e ativar um ambiente virtual
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+
+# 2. Instalar as dependências do app
+python -m pip install -r requirements.txt
+
+# 3. Abrir o app
+streamlit run app_streamlit.py
+```
+
+Depois, abra <http://localhost:8501> no navegador.
+
+- Na **primeira execução**, o app baixa do Hugging Face o modelo base (SmolLM2-360M) e o de embeddings, cerca de 1 GB, e guarda tudo na pasta `hf-cache/`. As execuções seguintes já abrem com os modelos em cache.
+- Roda na CPU, sem precisar de GPU. Cada resposta pode levar alguns segundos.
+- Se o PowerShell bloquear o `Activate.ps1`, rode antes: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned`.
+- Para encerrar o app, aperte **Ctrl+C** no terminal.
 
 ---
 
@@ -248,7 +276,7 @@ Os resultados da v1 estão em `saidas/` e o notebook em `CP_Ecommerce_SmolLM2_RA
 
 ---
 
-## 🖥️ GPU e prints
+## 📸 GPU e prints
 
 Treino feito localmente no VSCode:
 
